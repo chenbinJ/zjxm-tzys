@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.springboot.mapper.ExceptionRecordMapper" >
+  <resultMap id="BaseResultMap" type="com.springboot.popj.ExceptionRecord" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="receipt_number" property="receiptNumber" jdbcType="VARCHAR" />
+    <result column="register_number" property="registerNumber" jdbcType="VARCHAR" />
+    <result column="business_name" property="businessName" jdbcType="VARCHAR" />
+    <result column="depart_code" property="departCode" jdbcType="VARCHAR" />
+    <result column="task_id" property="taskId" jdbcType="VARCHAR" />
+    <result column="exc_msg" property="excMsg" jdbcType="VARCHAR" />
+    <result column="task_direction" property="taskDirection" jdbcType="VARCHAR" />
+    <result column="notice_type" property="noticeType" jdbcType="VARCHAR" />
+    <result column="notice_url" property="noticeUrl" jdbcType="VARCHAR" />
+    <result column="notice_text" property="noticeText" jdbcType="VARCHAR" />
+    <result column="handle_status" property="handleStatus" jdbcType="VARCHAR" />
+    <result column="handle_result" property="handleResult" jdbcType="VARCHAR" />
+    <result column="happen_time" property="happenTime" jdbcType="TIMESTAMP" />
+    <result column="handle_time" property="handleTime" jdbcType="TIMESTAMP" />
+    <result column="handle_man" property="handleMan" jdbcType="VARCHAR" />
+    <result column="ext1" property="ext1" jdbcType="VARCHAR" />
+    <result column="ext2" property="ext2" jdbcType="VARCHAR" />
+    <result column="ext3" property="ext3" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, receipt_number, register_number, business_name, depart_code, task_id, exc_msg, 
+    task_direction, notice_type, notice_url, notice_text, handle_status, handle_result, 
+    happen_time, handle_time, handle_man, ext1, ext2, ext3
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from sj_exception_record
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from sj_exception_record
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.springboot.popj.ExceptionRecord" >
+    insert into sj_exception_record (id, receipt_number, register_number, 
+      business_name, depart_code, task_id, 
+      exc_msg, task_direction, notice_type, 
+      notice_url, notice_text, handle_status, 
+      handle_result, happen_time, handle_time, 
+      handle_man, ext1, ext2, 
+      ext3)
+    values (#{id,jdbcType=VARCHAR}, #{receiptNumber,jdbcType=VARCHAR}, #{registerNumber,jdbcType=VARCHAR}, 
+      #{businessName,jdbcType=VARCHAR}, #{departCode,jdbcType=VARCHAR}, #{taskId,jdbcType=VARCHAR}, 
+      #{excMsg,jdbcType=VARCHAR}, #{taskDirection,jdbcType=VARCHAR}, #{noticeType,jdbcType=VARCHAR}, 
+      #{noticeUrl,jdbcType=VARCHAR}, #{noticeText,jdbcType=VARCHAR}, #{handleStatus,jdbcType=VARCHAR}, 
+      #{handleResult,jdbcType=VARCHAR}, #{happenTime,jdbcType=TIMESTAMP}, #{handleTime,jdbcType=TIMESTAMP}, 
+      #{handleMan,jdbcType=VARCHAR}, #{ext1,jdbcType=VARCHAR}, #{ext2,jdbcType=VARCHAR}, 
+      #{ext3,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.springboot.popj.ExceptionRecord" >
+    insert into sj_exception_record
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="receiptNumber != null" >
+        receipt_number,
+      </if>
+      <if test="registerNumber != null" >
+        register_number,
+      </if>
+      <if test="businessName != null" >
+        business_name,
+      </if>
+      <if test="departCode != null" >
+        depart_code,
+      </if>
+      <if test="taskId != null" >
+        task_id,
+      </if>
+      <if test="excMsg != null" >
+        exc_msg,
+      </if>
+      <if test="taskDirection != null" >
+        task_direction,
+      </if>
+      <if test="noticeType != null" >
+        notice_type,
+      </if>
+      <if test="noticeUrl != null" >
+        notice_url,
+      </if>
+      <if test="noticeText != null" >
+        notice_text,
+      </if>
+      <if test="handleStatus != null" >
+        handle_status,
+      </if>
+      <if test="handleResult != null" >
+        handle_result,
+      </if>
+      <if test="happenTime != null" >
+        happen_time,
+      </if>
+      <if test="handleTime != null" >
+        handle_time,
+      </if>
+      <if test="handleMan != null" >
+        handle_man,
+      </if>
+      <if test="ext1 != null" >
+        ext1,
+      </if>
+      <if test="ext2 != null" >
+        ext2,
+      </if>
+      <if test="ext3 != null" >
+        ext3,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="receiptNumber != null" >
+        #{receiptNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="registerNumber != null" >
+        #{registerNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="businessName != null" >
+        #{businessName,jdbcType=VARCHAR},
+      </if>
+      <if test="departCode != null" >
+        #{departCode,jdbcType=VARCHAR},
+      </if>
+      <if test="taskId != null" >
+        #{taskId,jdbcType=VARCHAR},
+      </if>
+      <if test="excMsg != null" >
+        #{excMsg,jdbcType=VARCHAR},
+      </if>
+      <if test="taskDirection != null" >
+        #{taskDirection,jdbcType=VARCHAR},
+      </if>
+      <if test="noticeType != null" >
+        #{noticeType,jdbcType=VARCHAR},
+      </if>
+      <if test="noticeUrl != null" >
+        #{noticeUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="noticeText != null" >
+        #{noticeText,jdbcType=VARCHAR},
+      </if>
+      <if test="handleStatus != null" >
+        #{handleStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="handleResult != null" >
+        #{handleResult,jdbcType=VARCHAR},
+      </if>
+      <if test="happenTime != null" >
+        #{happenTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="handleTime != null" >
+        #{handleTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="handleMan != null" >
+        #{handleMan,jdbcType=VARCHAR},
+      </if>
+      <if test="ext1 != null" >
+        #{ext1,jdbcType=VARCHAR},
+      </if>
+      <if test="ext2 != null" >
+        #{ext2,jdbcType=VARCHAR},
+      </if>
+      <if test="ext3 != null" >
+        #{ext3,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.springboot.popj.ExceptionRecord" >
+    update sj_exception_record
+    <set >
+      <if test="receiptNumber != null" >
+        receipt_number = #{receiptNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="registerNumber != null" >
+        register_number = #{registerNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="businessName != null" >
+        business_name = #{businessName,jdbcType=VARCHAR},
+      </if>
+      <if test="departCode != null" >
+        depart_code = #{departCode,jdbcType=VARCHAR},
+      </if>
+      <if test="taskId != null" >
+        task_id = #{taskId,jdbcType=VARCHAR},
+      </if>
+      <if test="excMsg != null" >
+        exc_msg = #{excMsg,jdbcType=VARCHAR},
+      </if>
+      <if test="taskDirection != null" >
+        task_direction = #{taskDirection,jdbcType=VARCHAR},
+      </if>
+      <if test="noticeType != null" >
+        notice_type = #{noticeType,jdbcType=VARCHAR},
+      </if>
+      <if test="noticeUrl != null" >
+        notice_url = #{noticeUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="noticeText != null" >
+        notice_text = #{noticeText,jdbcType=VARCHAR},
+      </if>
+      <if test="handleStatus != null" >
+        handle_status = #{handleStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="handleResult != null" >
+        handle_result = #{handleResult,jdbcType=VARCHAR},
+      </if>
+      <if test="happenTime != null" >
+        happen_time = #{happenTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="handleTime != null" >
+        handle_time = #{handleTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="handleMan != null" >
+        handle_man = #{handleMan,jdbcType=VARCHAR},
+      </if>
+      <if test="ext1 != null" >
+        ext1 = #{ext1,jdbcType=VARCHAR},
+      </if>
+      <if test="ext2 != null" >
+        ext2 = #{ext2,jdbcType=VARCHAR},
+      </if>
+      <if test="ext3 != null" >
+        ext3 = #{ext3,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.springboot.popj.ExceptionRecord" >
+    update sj_exception_record
+    set receipt_number = #{receiptNumber,jdbcType=VARCHAR},
+      register_number = #{registerNumber,jdbcType=VARCHAR},
+      business_name = #{businessName,jdbcType=VARCHAR},
+      depart_code = #{departCode,jdbcType=VARCHAR},
+      task_id = #{taskId,jdbcType=VARCHAR},
+      exc_msg = #{excMsg,jdbcType=VARCHAR},
+      task_direction = #{taskDirection,jdbcType=VARCHAR},
+      notice_type = #{noticeType,jdbcType=VARCHAR},
+      notice_url = #{noticeUrl,jdbcType=VARCHAR},
+      notice_text = #{noticeText,jdbcType=VARCHAR},
+      handle_status = #{handleStatus,jdbcType=VARCHAR},
+      handle_result = #{handleResult,jdbcType=VARCHAR},
+      happen_time = #{happenTime,jdbcType=TIMESTAMP},
+      handle_time = #{handleTime,jdbcType=TIMESTAMP},
+      handle_man = #{handleMan,jdbcType=VARCHAR},
+      ext1 = #{ext1,jdbcType=VARCHAR},
+      ext2 = #{ext2,jdbcType=VARCHAR},
+      ext3 = #{ext3,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>
